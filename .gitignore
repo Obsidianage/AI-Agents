@@ -1,3 +1,4 @@
 .env
 myenv/
 practice
+__pycache__/
