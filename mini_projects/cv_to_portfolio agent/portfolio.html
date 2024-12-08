@@ -1,0 +1,228 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Umair's Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #2c3e50;
+        }
+        section {
+            padding: 2em;
+            margin: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .project {
+            margin-bottom: 2em;
+        }
+        .project h3 {
+            margin-bottom: 0.5em;
+        }
+        .project a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .project a:hover {
+            text-decoration: underline;
+        }
+        .contact-info p {
+            margin: 0.2em 0;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .skill-list {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+        }
+        @media (max-width: 768px) {
+          .skill-list {
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
+          }
+          nav {
+              position: sticky;
+              top: 0;
+              z-index: 100;
+          }
+          section {
+              margin: 0.5em;
+              padding: 1em;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mohammed Umair</h1>
+        <p>Aspiring Data Scientist / ML Engineer</p>
+    </header>
+
+    <nav>
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="summary">
+        <h2>Summary</h2>
+        <p>Highly motivated and passionate aspiring Data Scientist/ML Engineer with a strong foundation in machine learning, data analysis, and programming. Eager to contribute to innovative projects and continuously expand my knowledge in the field of AI and ML. Proven ability to apply theoretical knowledge to practical applications, as demonstrated through hands-on projects and a successful internship in data science.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skill-list">
+            <li><strong>Programming Languages:</strong> Python</li>
+            <li><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Logistic Regression, Decision Trees, Cosine Similarity</li>
+            <li><strong>Deep Learning:</strong> TensorFlow</li>
+            <li><strong>Data Analysis & Visualization:</strong> Exploratory Data Analysis (EDA), Data Visualization</li>
+            <li><strong>Databases:</strong> MySQL</li>
+            <li><strong>Frameworks:</strong> Flask</li>
+            <li><strong>Statistical Analysis:</strong> Probability, Linear Algebra, Calculus</li>
+            <li><strong>Other:</strong> Strong written and verbal communication</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>ML From Scratch</h3>
+            <p>Developed and implemented core machine learning algorithms from the ground up, including Linear Regression, Gradient Descent, Logistic Regression, and Decision Trees. Demonstrated a deep understanding of the mathematical and statistical underpinnings of these algorithms.</p>
+            <a href="https://github.com/" target="_blank">GitHub Repository</a>
+        </div>
+        <div class="project">
+            <h3>Book Recommender System</h3>
+            <p>Built a Flask-based web application that showcases top-rated books and provides personalized recommendations. Employed cosine similarity to generate four book suggestions based on user input, enhancing user engagement. Designed and implemented a user-friendly and visually appealing web interface.</p>
+            <a href="https://github.com/" target="_blank">GitHub Repository</a>
+        </div>
+        <div class="project">
+            <h3>WhatsApp Chat Analyzer</h3>
+            <p>Performed a comprehensive Exploratory Data Analysis (EDA) on WhatsApp group chat data. Identified key metrics such as the most frequent message senders and peak user activity times (daily, weekly, and monthly). Extracted and presented detailed statistics, including the most used words and top 10 users by word usage, emojis, and other metrics.</p>
+            <a href="https://github.com/" target="_blank">GitHub Repository</a>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li>
+                <h3>Junior Data Scientist | Data Point, Hyderabad, India | 08/2023 – 09/2023</h3>
+                <ul>
+                    <li>Gained foundational knowledge in Data Analysis and Machine Learning.</li>
+                    <li>Developed high-level thinking and problem-solving skills for project execution.</li>
+                    <li>Contributed to minor end-to-end projects, including a Laptop Price Predictor and a Student Marks Predictor.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <h3>Bachelor of Technology (B.Tech) in Computer Science | Lords Institute of Engineering and Technology | 2021 – 2025 (Expected)</h3>
+                <ul>
+                    <li>Current CGPA: 9.21</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>IBM Data Visualization Professional Certification</li>
+        </ul>
+    </section>
+
+    <section id="interests">
+        <h2>Interests</h2>
+        <ul>
+            <li>Basketball</li>
+            <li>Reading</li>
+            <li>Listening</li>
+            <li>Travel</li>
+            <li>Coding</li>
+            <li>Artificial General Intelligence (AGI)</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p><strong>Phone:</strong> (+91) 7569301861</p>
+            <p><strong>Email:</strong> <a href="mailto:mohdumairdm@gmail.com">mohdumairdm@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank">LinkedIn Profile</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank">GitHub Profile</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Mohammed Umair. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+```
