@@ -1,7 +1,7 @@
 # Career Assistant Agent
 
 An AI-powered career development companion that helps with learning resources, interview preparation, resume creation, and job searching.
-
+![alt text](image.png)
 ## Features
 
 - **Learning Resources**
