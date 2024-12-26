@@ -50,7 +50,7 @@ agent = Agent(
     model=Gemini(id="gemini-1.5-pro"), 
     knowledge_base=knowledge_base,
     add_context=True,
-    search_knowledge=True,
+    search_knowledge=False,
     markdown=True,
     debug_mode=True,
     description="You are an expert at analyzing academic papers. You have access to the content of a paper about Attention mechanisms.",
@@ -64,6 +64,10 @@ agent = Agent(
     # By default, it is on 'auto' mode, which means the agent will decide if the tool should be used or not.
 
 )
+
+# For Agentic RAG, we need to set search_knowledge to True.
+# And add read_chat_history to True.
+
 
 agent.print_response("What is this paper about? Give a brief summary.", stream=True)
 
