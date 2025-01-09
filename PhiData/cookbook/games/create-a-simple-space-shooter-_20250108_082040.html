@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Space Shooter</title>
+<style>
+body { margin: 0; overflow: hidden; }
+canvas { background: #000; display: block; margin: 0 auto; }
+#gameInfo { color: white; font-family: sans-serif; position: absolute; width: 100%; text-align: center; top: 10px; }
+#score { left: 10px; position: absolute; }
+#lives { right: 10px; position: absolute; }
+#gameOver { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 3em; font-family: sans-serif; display: none; }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+<div id="gameInfo">
+  <span id="score">Score: 0</span>
+  <span id="lives">Lives: 3</span>
+</div>
+<div id="gameOver">Game Over</div>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const scoreDisplay = document.getElementById('score');
+const livesDisplay = document.getElementById('lives');
+const gameOverScreen = document.getElementById('gameOver');
+
+let gameState = 'start';
+let score = 0;
+let lives = 3;
+
+const player = { x: 380, y: 550, width: 20, height: 30, speed: 5 };
+const bullets = [];
+const asteroids = [];
+
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+function update() {
+  if (gameState === 'play') {
+    movePlayer();
+    updateBullets();
+    updateAsteroids();
+    checkCollisions();
+    checkGameOver();
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (gameState === 'start' || gameState === 'end') {
+    drawStartOrGameOverScreen();
+  } else if (gameState === 'play') {
+    drawPlayer();
+    drawBullets();
+    drawAsteroids();
+    drawScoreAndLives();
+  }
+}
+
+function startGame() {
+  gameState = 'play';
+  gameOverScreen.style.display = 'none';
+  score = 0;
+  lives = 3;
+  bullets.length = 0;
+  asteroids.length = 0;
+}
+
+function drawStartOrGameOverScreen() {
+  let message = (gameState === 'start') ? 'Press Enter to Start' : 'Game Over - Press Enter to Restart';
+  ctx.font = '30px sans-serif';
+  ctx.fillStyle = 'white';
+  ctx.textAlign = 'center';
+  ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+}
+
+function movePlayer() {
+  if (keys.left && player.x > 0) player.x -= player.speed;
+  if (keys.right && player.x < canvas.width - player.width) player.x += player.speed;
+}
+
+function updateBullets() {
+  for (let i = 0; i < bullets.length; i++) {
+    bullets[i].y -= 5;
+    if (bullets[i].y < 0) bullets.splice(i, 1);
+  }
+}
+
+function updateAsteroids() {
+  if (Math.random() < 0.02) {
+    asteroids.push({ x: Math.random() * (canvas.width - 30), y: 0, radius: 15 });
+  }
+  for (let i = 0; i < asteroids.length; i++) {
+    asteroids[i].y += 3;
+    if (asteroids[i].y > canvas.height) asteroids.splice(i, 1);
+  }
+}
+
+function checkCollisions() {
+    for (let i = 0; i < bullets.length; i++) {
+        for (let j = 0; j < asteroids.length; j++) {
+            const dx = bullets[i].x - asteroids[j].x;
+            const dy = bullets[i].y - asteroids[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < asteroids[j].radius) {
+                bullets.splice(i, 1);
+                asteroids.splice(j, 1);
+                score += 10;
+                break; // Exit inner loop after collision
+            }
+        }
+    }
+}
+
+function checkGameOver() {
+  if (lives <= 0) {
+    gameState = 'end';
+    gameOverScreen.style.display = 'block';
+  }
+}
+
+function drawPlayer() { /* ...same as before... */ }
+function drawBullets() { /* ...same as before... */ }
+function drawAsteroids() { /* ...same as before... */ }
+function drawScoreAndLives() { /* ...same as before... */ }
+
+const keys = {};
+document.addEventListener('keydown', e => {
+  if (gameState === 'start' || gameState === 'end') {
+    if (e.key === 'Enter') {
+      startGame();
+    }
+  } else if (gameState === 'play') {
+    keys[e.key] = true;
+    if (e.key === ' ') {
+        bullets.push({ x: player.x + player.width / 2, y: player.y - 10 });
+    }
+  }
+});
+document.addEventListener('keyup', e => keys[e.key] = false);
+
+
+gameLoop();
+</script>
+</body>
+</html>
